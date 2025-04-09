@@ -1,0 +1,15 @@
+---
+- hosts: bastion
+  become: true
+  tasks:
+  - name: Disable root SSH login
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: '^PermitRootLogin'
+      line: 'PermitRootLogin no'
+      state: present
+
+  - name: Restart SSH service
+    service:
+      name: ssh
+      state: restarted

@@ -1,0 +1,11 @@
+alertmanager:
+  enabled: true
+
+pushgateway:
+  enabled: true
+
+server:
+  global:
+    scrape_interval: 15s
+  service:
+    type: LoadBalancer
